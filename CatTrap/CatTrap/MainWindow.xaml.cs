@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
@@ -70,35 +71,27 @@ namespace CatTrap
         private void SetInitialObstacles()
         {
             Random rnd = new Random();
-            int CordRow = rnd.Next(0, 11);
-            int CordCol = rnd.Next(0, 11);
-            int[,] obstacles =
+            int[] blacklist =
             {
-                /*{ 1, 1 },
-                { 1, 3 },
-                { 1, 6 },
-                { 2, 0 },
-                { 2, 2 },
-                { 2, 10 },
-                { 4, 3 },
-                { 4, 10 },
-                { 7, 2 },
-                { 7, 8 },
-                { 8, 6 },
-                { 9, 1 },
-                { 9, 2 },
-                { 9, 3 },
-                { 9, 8 },
-                { 10, 3 },
-                { 10, 6 }*/
+                45,46,54,55,56,65,66
             };
 
             for (int i = 0; i < 17; i++)
             {
-                int row = obstacles[i, 0];
-                int col = obstacles[i, 1];
+                //int row = obstacles[i, 0];
+                //int col = obstacles[i, 1];
 
-                Blocked[row, col] = true;
+                int CordRow = 0;
+                int CordCol = 0;
+                do
+                {
+                    CordRow = rnd.Next(0, 11);
+                    CordCol = rnd.Next(0, 11);
+                }
+                while (blacklist.Contains(int.Parse(CordRow + "" + CordCol)));
+                
+
+                Blocked[CordRow, CordCol] = true;
             }
         }
 

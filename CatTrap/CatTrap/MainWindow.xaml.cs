@@ -277,7 +277,9 @@ namespace CatTrap
             }
         }
 
-        // PATHFINDING,, okay i had a little help from AI here cuz this is complicated for my brain,, ill will fill my brain in on how this works later so he cant suspect a thing (we just say we looked it up on the internet,, theres a few games with similar pathfinding available)
+        // PATHFINDING,, okay i had a little help from AI here cuz this is complicated for my brain,,
+        // i will fill my brain in on how this works later so he cant suspect a thing (we just say we looked it up on the internet,,
+        // theres a few games with similar pathfinding available)
 
 
         private bool FindNextCatStep(out (int Row, int Col) NextPosition)
